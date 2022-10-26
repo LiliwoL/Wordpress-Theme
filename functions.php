@@ -81,8 +81,25 @@ function display_last_articles()
                                 
                     // Lien
                     echo '</a>';
-                echo '</div>';
+                echo '</div>';				
             }
+
+			// Autre méthode (au choix)
+			/*
+				while ($query->have_posts()) :
+					$query->the_post();
+					?>
+					<div class="card mb-3" style="width: 18rem;">
+						<a href="<?php the_permalink() ?>" title="<?php the_title() ?>">
+							<img src="<?php the_post_thumbnail_url() ?>" class="card-img-top" alt="<?php the_title() ?>">
+							<div class="card-body">
+								<h5 class="card-title"><?php the_title() ?></h5>
+							</div>
+						</a>
+					</div>
+					<?php
+				endwhile;
+			*/
         
         }else{
             echo "Aucun contenu à afficher";
@@ -95,9 +112,10 @@ function display_main_menu()
 {
 	// Arguments du menu à afficher
 	$args = array(
-		...
+		'theme_location' => 'primary'
 	);
 
 	// Appel la fonction d'affichage
+	// https://developer.wordpress.org/reference/functions/wp_nav_menu/
 	wp_nav_menu( $args );
 }
