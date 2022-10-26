@@ -4,7 +4,12 @@
         // Afficher la liste des contenus (posts)
         // Instance de WP_Query
         // https://developer.wordpress.org/reference/classes/wp_query/#order-orderby-parameters
-        $query = new WP_Query( 'order=DESC & orderby=date & posts_per_page=5' );
+        $args = array(
+            'order'             => 'ASC',
+            'orderby'           => 'date',
+            'posts_per_page'    => 5
+        );
+        $query = new WP_Query( $args );
         
         // Résultats?
         if ($query->have_posts())
