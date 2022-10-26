@@ -3,17 +3,19 @@
 
         // Afficher la liste des contenus (posts)
         // Instance de WP_Query
-        $query = new WP_Query( 'order=DESC & orderby=date & posts_per_page=10' );
+        // https://developer.wordpress.org/reference/classes/wp_query/#order-orderby-parameters
+        $query = new WP_Query( 'order=DESC & orderby=date & posts_per_page=5' );
         
         // Résultats?
         if ($query->have_posts())
-        {
-        
+        {        
             // Parcours des contenus
             while ( $query->have_posts() )
             {
                 // Récupère le post en cours
                 $query->the_post();
+
+                // https://getbootstrap.com/docs/5.2/components/card/
 
                 echo '<div class="card mb-3" style="width: 18rem;">';
                     // Lien
