@@ -108,11 +108,18 @@ function display_last_articles()
 
 // **************************************
 
+/**
+ * Affichage du menu placé dans l'emplacement primary
+ */
 function display_main_menu()
 {
+	// https://getbootstrap.com/docs/4.0/components/navbar/
+
 	// Arguments du menu à afficher
 	$args = array(
-		'theme_location' => 'primary'
+		'theme_location' => 'primary',
+		'container' => 'nav',
+		'container_class' => 'navbar navbar-expand-lg navbar-light bg-light'
 	);
 
 	// Appel la fonction d'affichage
