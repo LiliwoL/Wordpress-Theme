@@ -106,6 +106,77 @@ function display_last_articles()
         }
 }
 
+// ************************************************
+
+/**
+ * Pour afficher les derniers films
+ */
+function display_last_movies()
+{
+	echo '<h2>Liste des derniers films</h2>';
+
+        // Afficher la liste des contenus (posts)
+        // Instance de WP_Query
+        // https://developer.wordpress.org/reference/classes/wp_query/#order-orderby-parameters
+        $args = array(
+            'order'             => 'ASC',
+            'orderby'           => 'date',
+			'post_type'			=> 'movies',
+            'posts_per_page'    => 5
+        );
+        $query = new WP_Query( $args );
+        
+        // Résultats?
+        if ($query->have_posts())
+        {        
+            // Parcours des contenus
+            while ( $query->have_posts() )
+            {
+                // Récupère le post en cours
+                $query->the_post();
+
+                // https://getbootstrap.com/docs/5.2/components/card/
+
+                echo '<div class="card mb-3" style="width: 18rem;">';
+                    // Lien
+                    echo '<a href="' . get_the_permalink() . '" title="' . get_the_title() . '">';
+
+                        // Affiche
+                        echo '<img src="' . get_the_post_thumbnail_url() . '" 
+                            class="card-img-top" alt="' . get_the_title() . '">';
+
+                        echo '<div class="card-body">';
+                            // Titre
+                            echo '<h5 class="card-title">' . get_the_title() . '</h5>';
+                        echo '</div>';
+                                
+                    // Lien
+                    echo '</a>';
+                echo '</div>';				
+            }
+
+			// Autre méthode (au choix)
+			/*
+				while ($query->have_posts()) :
+					$query->the_post();
+					?>
+					<div class="card mb-3" style="width: 18rem;">
+						<a href="<?php the_permalink() ?>" title="<?php the_title() ?>">
+							<img src="<?php the_post_thumbnail_url() ?>" class="card-img-top" alt="<?php the_title() ?>">
+							<div class="card-body">
+								<h5 class="card-title"><?php the_title() ?></h5>
+							</div>
+						</a>
+					</div>
+					<?php
+				endwhile;
+			*/
+        
+        }else{
+            echo "Aucun contenu à afficher";
+        }
+}
+
 // **************************************
 
 /**
@@ -151,7 +222,8 @@ function display_main_menu()
 // https://generatewp.com/post-type/
 
 // Création d'un type de contenu Movie
-function create_movie_type() {
+function create_movie_type()
+{
 
 	$labels = array(
 		'name'                  => _x( 'Films', 'Post Type General Name', 'text_domain' ),
