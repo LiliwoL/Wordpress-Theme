@@ -88,3 +88,16 @@ function display_last_articles()
             echo "Aucun contenu à afficher";
         }
 }
+
+// **************************************
+
+function display_main_menu()
+{
+	// Arguments du menu à afficher
+	$args = array(
+		...
+	);
+
+	// Appel la fonction d'affichage
+	wp_nav_menu( $args );
+}

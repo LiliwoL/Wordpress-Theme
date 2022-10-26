@@ -11,6 +11,11 @@
 
     <body>
         <main>
-        <div class="container">
-            <div class="row">
-        <!-- Le header s'arrete ici -->
+            <?php
+                // Affichage du menu
+                display_main_menu();
+            ?>
+            
+            <div class="container">
+                <div class="row">
+            <!-- Le header s'arrete ici -->
