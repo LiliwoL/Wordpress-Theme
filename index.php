@@ -5,7 +5,7 @@ get_header();
 
 ?>
 
-<div class="col-6">
+<div class="col-8">
     CONTENU
 </div>
 
