@@ -49,7 +49,7 @@ function display_last_articles()
         // Instance de WP_Query
         // https://developer.wordpress.org/reference/classes/wp_query/#order-orderby-parameters
         $args = array(
-            'order'             => 'ASC',
+            'order'             => 'DESC',
             'orderby'           => 'date',
             'posts_per_page'    => 5
         );
@@ -187,25 +187,25 @@ function display_main_menu()
 	// https://getbootstrap.com/docs/4.0/components/navbar/
 
 	echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="' . get_bloginfo('url') . '">
-    		<img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" 
-			width="30" height="30" alt="' . get_bloginfo('name') . '">
-  		</a>
+			<a class="navbar-brand" href="' . get_bloginfo('url') . '">
+				<img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" 
+				width="30" height="30" alt="' . get_bloginfo('name') . '">
+			</a>
 
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		  	<span class="navbar-toggler-icon"></span>
-		</button>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 	';
 
 	// Arguments du menu à afficher
 	$args = array(
-		'theme_location' => 'primary',
-		'container' => 'div',
-		'container_class' => 'collapse navbar-collapse',
-		'container_id' => 'navbarNav',
+		'theme_location' 		=> 'primary',
+		'container' 			=> 'div',
+		'container_class' 		=> 'collapse navbar-collapse',
+		'container_id' 			=> 'navbarNav',
 
 		'items_wrap'           => '<ul class="navbar-nav mr-auto">%3$s</ul>',
-		'item_spacing' => 'preserve'
+		'item_spacing' 			=> 'preserve'
 	);
 
 	// Appel la fonction d'affichage
