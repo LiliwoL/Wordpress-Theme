@@ -115,20 +115,40 @@ function display_main_menu()
 {
 	// https://getbootstrap.com/docs/4.0/components/navbar/
 
+	echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="' . get_bloginfo('url') . '">
+    		<img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" 
+			width="30" height="30" alt="' . get_bloginfo('name') . '">
+  		</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		  	<span class="navbar-toggler-icon"></span>
+		</button>
+	';
+
 	// Arguments du menu à afficher
 	$args = array(
 		'theme_location' => 'primary',
-		'container' => 'nav',
-		'container_class' => 'navbar navbar-expand-lg navbar-light bg-light'
+		'container' => 'div',
+		'container_class' => 'collapse navbar-collapse',
+		'container_id' => 'navbarNav',
+
+		'items_wrap'           => '<ul class="navbar-nav mr-auto">%3$s</ul>',
+		'item_spacing' => 'preserve'
 	);
 
 	// Appel la fonction d'affichage
 	// https://developer.wordpress.org/reference/functions/wp_nav_menu/
 	wp_nav_menu( $args );
+
+	echo '</nav>';
 }
 
 
 // ****************************************
+
+// Pour aider à la rédaction d'un nouveau Content Type
+// https://generatewp.com/post-type/
 
 // Création d'un type de contenu Movie
 function create_movie_type() {
