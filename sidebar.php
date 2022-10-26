@@ -19,7 +19,7 @@
 
                 echo '<div class="card mb-3" style="width: 18rem;">';
                     // Lien
-                    echo '<a href="' . get_the_permalink() . '">';
+                    echo '<a href="' . get_the_permalink() . '" title="' . get_the_title() . '">';
 
                         // Affiche
                         echo '<img src="' . get_the_post_thumbnail_url() . '" 
@@ -36,7 +36,7 @@
             }
         
         }else{
-            echo "Aucun article dans cette catégorie";
+            echo "Aucun contenu à afficher";
         }
     ?>
 
