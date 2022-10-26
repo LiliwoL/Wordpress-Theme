@@ -11,4 +11,6 @@
 
     <body>
         <main>
+        <div class="container">
+            <div class="row">
         <!-- Le header s'arrete ici -->
