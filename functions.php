@@ -113,7 +113,7 @@ function display_last_articles()
  */
 function display_last_movies()
 {
-	echo '<h2>Liste des derniers films</h2>';
+	echo '<h4>Derniers films</h4>';
 
         // Afficher la liste des contenus (posts)
         // Instance de WP_Query
@@ -137,7 +137,7 @@ function display_last_movies()
 
                 // https://getbootstrap.com/docs/5.2/components/card/
 
-                echo '<div class="card mb-3" style="width: 18rem;">';
+                echo '<div class="card mb-3" style="width: 10rem;">';
                     // Lien
                     echo '<a href="' . get_the_permalink() . '" title="' . get_the_title() . '">';
 
@@ -185,7 +185,6 @@ function display_last_movies()
 function display_main_menu()
 {
 	// https://getbootstrap.com/docs/4.0/components/navbar/
-
 	echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="' . get_bloginfo('url') . '">
 				<img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" 
@@ -200,6 +199,34 @@ function display_main_menu()
 	// Arguments du menu à afficher
 	$args = array(
 		'theme_location' 		=> 'primary',
+		'container' 			=> 'div',
+		'container_class' 		=> 'collapse navbar-collapse',
+		'container_id' 			=> 'navbarNav',
+
+		'items_wrap'           => '<ul class="navbar-nav mr-auto">%3$s</ul>',
+		'item_spacing' 			=> 'preserve'
+	);
+
+	// Appel la fonction d'affichage
+	// https://developer.wordpress.org/reference/functions/wp_nav_menu/
+	wp_nav_menu( $args );
+
+	echo '</nav>';
+}
+
+// **************************************
+
+/**
+ * Affichage du menu placé dans l'emplacement footer
+ */
+function display_footer_menu()
+{
+	// https://getbootstrap.com/docs/4.0/components/navbar/
+	echo '<nav>';
+
+	// Arguments du menu à afficher
+	$args = array(
+		'theme_location' 		=> 'footer',
 		'container' 			=> 'div',
 		'container_class' 		=> 'collapse navbar-collapse',
 		'container_id' 			=> 'navbarNav',

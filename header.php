@@ -11,9 +11,17 @@
 
     <body>
         <main>
+            <!-- Logo -->
+            <a href="" title="">
+                <img src="" alt=""/>
+            </a>
+
             <?php
                 // Affichage du menu
-                display_main_menu();
+                if (function_exists('display_main_menu'))
+                {
+                    display_main_menu();
+                }
             ?>
 
             <div class="container">

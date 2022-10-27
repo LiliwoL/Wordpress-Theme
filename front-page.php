@@ -5,7 +5,7 @@
 
 ?>
 
-<div class="col-8">
+<div class="col-10">
     <?php
         // La requête a déjà été faite
 
