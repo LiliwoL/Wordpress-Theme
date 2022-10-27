@@ -187,9 +187,9 @@ function display_last_movies()
 function display_main_menu()
 {
 	// https://getbootstrap.com/docs/4.0/components/navbar/
-	echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	echo '<nav class="navbar navbar-expand-lg navbar-light bg-light ms-3">
 			<a class="navbar-brand" href="' . get_bloginfo('url') . '"  title="' . get_bloginfo('name') . '">
-				<img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" 
+				<img src="' . get_stylesheet_directory_uri()  . '/assets/logo.svg" 
 				width="30" height="30" alt="' . get_bloginfo('name') . '">
 			</a>
 
