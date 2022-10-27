@@ -6,7 +6,7 @@
                 <div class="col">
                     <?php
                         // Affichage du menu footer UNIQUEMENT sur la page d'accueil
-                        if (is_home())
+                        if (is_front_page())
                         {
                             if (function_exists('display_footer_menu'))
                             {

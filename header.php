@@ -12,8 +12,8 @@
     <body>
         <main>
             <!-- Logo -->
-            <a href="" title="">
-                <img src="" alt=""/>
+            <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>">
+                <img src="http://10.105.0.254/wordpress/wp-content/uploads/2022/10/Thelma_et_Louise-affiche-480x640-1.jpg" alt="" class="w-25"/>
             </a>
 
             <?php

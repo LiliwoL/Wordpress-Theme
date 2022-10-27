@@ -7,7 +7,6 @@
 
 // Ajout du CSS parent
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_parent_style');
-
 function theme_enqueue_parent_style()
 {
 	// On ajoute un style à ceux déjà en place
@@ -32,9 +31,12 @@ function eni_menus()
 	// On donne à wordpress le tableau des emplacements de menu
 	register_nav_menus( $locations );
 }
-
 add_action ('after_setup_theme', 'eni_menus');
 
+
+// *****************************************
+// Retire l'action wp_generator
+remove_action("wp_head", "wp_generator");
 
 // ************************************************
 
@@ -186,7 +188,7 @@ function display_main_menu()
 {
 	// https://getbootstrap.com/docs/4.0/components/navbar/
 	echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="' . get_bloginfo('url') . '">
+			<a class="navbar-brand" href="' . get_bloginfo('url') . '"  title="' . get_bloginfo('name') . '">
 				<img src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" 
 				width="30" height="30" alt="' . get_bloginfo('name') . '">
 			</a>
@@ -226,13 +228,7 @@ function display_footer_menu()
 
 	// Arguments du menu à afficher
 	$args = array(
-		'theme_location' 		=> 'footer',
-		'container' 			=> 'div',
-		'container_class' 		=> 'collapse navbar-collapse',
-		'container_id' 			=> 'navbarNav',
-
-		'items_wrap'           => '<ul class="navbar-nav mr-auto">%3$s</ul>',
-		'item_spacing' 			=> 'preserve'
+		'theme_location' 		=> 'footer'
 	);
 
 	// Appel la fonction d'affichage
