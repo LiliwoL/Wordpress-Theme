@@ -50,7 +50,12 @@
                     echo '<div>Genre: ';                        
                         foreach ( $genres as $tag ) 
                         {
-                            echo '<span>' . $tag->name . '</span>';
+                            // Récupérer le lien du tag
+                            $tagLink = get_tag_link($tag);
+
+                            echo '<span>';
+                                echo '<a href="' . $tagLink . '">'. $tag->name . '</a>';
+                            echo '</span>';
                         }
                     echo '</div>';
                 ?>
