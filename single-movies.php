@@ -41,6 +41,14 @@
                     // Censure
                     // Attention, c'est un tableau!
                     echo '<div>Censure: ' . get_field('censure')[0] . '</div>';
+
+                    echo "<br/>";
+
+                    // Etiquettes (Taxonomie)
+                    echo '<div>Genre: ';
+                        $genres =  get_the_term_list( get_the_ID(), 'post_tag');
+                        echo $genres;
+                    echo '</div>';
                 ?>
 
             </div>
