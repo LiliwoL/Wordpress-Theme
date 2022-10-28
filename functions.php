@@ -413,4 +413,4 @@ function seances_sortable_columns( $columns ) {
 }
 
 // Ajout des CustomFields
-include_once('./createCustomFields.php');
+include_once( get_stylesheet_directory() . '/createCustomFields.php');

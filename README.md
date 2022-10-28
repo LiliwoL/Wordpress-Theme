@@ -12,3 +12,4 @@ Utilisé durant une formation CMS à l'ENI de Nantes.
 ## Pré-requis
 
 * Extension ACF installée
+* PaperCut SMTP pour récupérer les envois de mail
