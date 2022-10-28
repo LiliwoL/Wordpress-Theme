@@ -45,7 +45,7 @@
                     echo "<br/>";
 
                     // On récupère un tableau de WP_Term
-                    $genres = get_tags();
+                    $genres = get_the_tags();
                     // Etiquettes (Taxonomie)
                     echo '<div>Genre: ';                        
                         foreach ( $genres as $tag ) 
