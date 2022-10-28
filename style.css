@@ -6,8 +6,54 @@ Template: blankslate
 /* Méthode d'avant à ne plus utiliser */
 /*@import url ("../blankslate/style.css");*/
 
+/*
+-------------
+Menu
+-------------
+*/
+.menu-item{
+  margin-right: 1rem;
+}
+.menu-item a{
+  color: rgba(0,0,0,.9);
+  display: block;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  background-color: transparent;
+}
+.menu-item a:hover{
+  color: rgba(0,0,0,.7);
+}
+
+
 .image{
     max-width: 23rem;
+}
+
+.titles > *, .seances > * {
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 1.25rem;
+  color: rgb(255,255,255);
+  text-shadow: 0 0 0 rgb(255,255,255);
+  background: rgb(29,29,30);
+}
+.synopsys {
+  display: inline-block;
+  border: .5rem solid black;
+  padding: 1.25rem;
+}
+
+.seance {
+  margin: .2rem;
+}
+.seance:hover{
+  background: rgb(29, 29, 31);
+  color: rgb(235, 235, 235);
+  cursor: pointer;
+}
+.seance:hover:after{
+  content: " >> Réserver";
 }
 
 .poster {

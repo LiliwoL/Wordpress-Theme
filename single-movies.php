@@ -11,7 +11,7 @@
     ?>
 
     <div class="row">
-        <div class="col-4">
+        <div class="col-4 mt-2">
             <div class="image">
                 <figure class="poster">
                     <img alt="<?= get_the_title(); ?>" 
@@ -21,31 +21,39 @@
             </div>
         </div>
 
-        <div class="col-8">
-            <?php
-                the_title();
+        <div class="col-8 mt-2">
 
-                the_content();
-        
-                // Debug de tous les champs personnalisés
-                //var_dump( get_post_meta( get_the_ID() ) );
-        
-                // Date de sortie
-                //echo '<span>' . get_post_meta( get_the_ID(), 'annee_de_sortie', true ) , '</span>';        
-                echo '<span>Année de sortie: ' . get_field( 'annee_de_sortie' ) . '</span>';
-        
-                // Distribution
-                echo '<div>Distribution:<br/>' . get_field('distribution') . '</div>';
-        
-                // Censure
-                // Attention, c'est un tableau!
-                echo '<div>Censure: ' . get_field('censure')[0] . '</div>';
-            ?>
+            <div class="titles">
+                <h2><?= get_the_title() ; ?></h2>
+
+                <?php
+            
+                    // Debug de tous les champs personnalisés
+                    //var_dump( get_post_meta( get_the_ID() ) );
+            
+                    // Date de sortie
+                    //echo '<span>' . get_post_meta( get_the_ID(), 'annee_de_sortie', true ) , '</span>';        
+                    echo '<span>Année de sortie: ' . get_field( 'annee_de_sortie' ) . '</span>';
+            
+                    // Distribution
+                    echo '<div>Distribution:<br/>' . get_field('distribution') . '</div>';
+            
+                    // Censure
+                    // Attention, c'est un tableau!
+                    echo '<div>Censure: ' . get_field('censure')[0] . '</div>';
+                ?>
+
+            </div>
+
+            <div class="synopsys mt-5">
+                <?= get_the_content(); ?>
+            </div>
 
             <hr/>
 
-            <div>
+            <div class="seances">
                 <h4>Séances à venir:</h4>
+                <br/>
                 <?php
                     // https://developer.wordpress.org/reference/classes/wp_query/#custom-field-post-meta-parameters
 
@@ -56,7 +64,11 @@
                         
                         // Critère de sélection pour l'id du film affiché
                         'meta_key'   => 'film',
-	                    'meta_value' => get_the_ID()
+	                    'meta_value' => get_the_ID(),
+                        
+                        // Critère sur les dates futures
+                        
+                        
                     );
 
                     // Requete
@@ -71,10 +83,8 @@
                             // Récupère le post en cours
                             $query->the_post();
 
-                            // Afficher l'heure
-                            echo get_field('date_et_heure_de_debut', get_the_ID());
-
-                            echo "<br>";
+                            // Afficher le custom field de l'heure
+                            echo '<span class="seance">' . get_field('date_et_heure_de_debut') . "</span>";
                         }
                     }
                 ?>
